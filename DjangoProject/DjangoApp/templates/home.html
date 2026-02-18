@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasky | Perfect Alignment</title>
+    <style>
+        :root {
+            --neon-blue: #00f2ff;
+            --neon-pink: #ff00ff;
+            --neon-yellow: #fefe33;
+            --bg-dark: #020617;
+            --text-outline: rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes masterGlow {
+            0% { border-color: var(--neon-blue); stroke: var(--neon-blue); filter: drop-shadow(0 0 10px var(--neon-blue)); color: var(--neon-blue); }
+            50% { border-color: var(--neon-pink); stroke: var(--neon-pink); filter: drop-shadow(0 0 20px var(--neon-pink)); color: var(--neon-pink); }
+            100% { border-color: var(--neon-yellow); stroke: var(--neon-yellow); filter: drop-shadow(0 0 15px var(--neon-yellow)); color: var(--neon-yellow); }
+        }
+
+        @keyframes lineFlow {
+            0% { stroke-dashoffset: 1000; }
+            100% { stroke-dashoffset: 0; }
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: radial-gradient(circle at center, #0f172a 0%, var(--bg-dark) 100%);
+            color: white;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            direction: ltr;
+        }
+
+        .main-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 130px;
+            width: 100%;
+            max-width: 1600px;
+            margin-right: 150px;
+        }
+
+        .brand-zone {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 0 1 auto;
+        }
+
+        .logo-svg {
+            width: 550px;
+            height: 180px;
+            overflow: visible;
+            display: block;
+        }
+
+        .text-skeleton {
+            font-size: 160px;
+            font-weight: 900;
+            font-family: 'Arial Black', sans-serif;
+            fill: none;
+            stroke: var(--text-outline);
+            stroke-width: 2px;
+            text-anchor: middle;
+        }
+
+        .text-animated {
+            font-size: 160px;
+            font-weight: 900;
+            font-family: 'Arial Black', sans-serif;
+            fill: none;
+            stroke-width: 5px;
+            stroke-dasharray: 250;
+            text-anchor: middle;
+            animation: lineFlow 6s linear infinite, masterGlow 6s infinite alternate ease-in-out;
+        }
+
+        .description {
+            font-size: 38px;
+            color: #a5f3fc;
+            max-width: 600px;
+            line-height: 1.1;
+            margin-top: -10px;
+            direction: rtl;
+        }
+
+        .highlight-line {
+            border-bottom: 5px solid;
+            animation: masterGlow 6s infinite alternate ease-in-out;
+            font-weight: bold;
+        }
+
+        .card-container {
+            flex: 0 0 520px;
+            position: relative;
+            z-index: 25;
+        }
+
+        .cyber-card {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(25px);
+            border: 4px solid var(--neon-blue);
+            border-radius: 55px;
+            padding: 5rem 3.5rem;
+            text-align: center;
+            animation: masterGlow 6s infinite alternate ease-in-out;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+        }
+
+        .welcome-title { font-size: 68px; font-weight: 900; margin-bottom: 5px; color: white; font-style: italic; }
+        .welcome-sub { font-size: 26px; color: #a5f3fc; margin-bottom: 50px; }
+
+        .btn-glow {
+            display: block; width: 100%; padding: 1.8rem; border-radius: 25px;
+            font-size: 30px; font-weight: 900; text-decoration: none;
+            text-align: center; background: transparent; border: 4px solid var(--neon-blue);
+            animation: masterGlow 6s infinite alternate ease-in-out;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .btn-glow:hover { background: white; color: black !important; box-shadow: 0 0 60px white; filter: none; }
+
+        .btn-white { background: white !important; color: black !important; border-color: white !important; animation: none !important; margin-bottom: 25px; }
+
+        .logout-link {
+            display: block; margin-top: 40px; color: #334155; text-decoration: none;
+            font-size: 16px; letter-spacing: 5px; font-weight: bold; transition: 0.3s;
+        }
+        .logout-link:hover { animation: masterGlow 6s infinite alternate ease-in-out; }
+
+        .corner {
+            position: absolute; width: 65px; height: 65px; border: 9px solid var(--neon-blue);
+            z-index: -1;
+            animation: masterGlow 6s infinite alternate ease-in-out;
+        }
+        .tl { top: -20px; left: -20px; border-right: none; border-bottom: none; border-radius: 25px 0 0 0; }
+        .tr { top: -20px; right: -20px; border-left: none; border-bottom: none; border-radius: 0 25px 0 0; }
+        .bl { bottom: -20px; left: -20px; border-right: none; border-top: none; border-radius: 0 0 0 25px; }
+        .br { bottom: -20px; right: -20px; border-left: none; border-top: none; border-radius: 0 0 25px 0; }
+
+        @media (max-width: 1300px) {
+            .main-container { flex-direction: column; margin-right: 0; gap: 50px; overflow-y: auto; padding: 50px 0; }
+            .logo-svg { width: 100%; max-width: 500px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+
+        <div class="brand-zone">
+            <svg class="logo-svg" viewBox="0 0 700 200">
+                <text x="350" y="150" class="text-skeleton">WORKIFY.</text>
+                <text x="350" y="150" class="text-animated">WORKIFY.</text>
+            </svg>
+            <p class="description">
+                 אתר לניהול משימות
+                <span class="highlight-line"> </span>.
+            </p>
+        </div>
+
+        <div class="card-container">
+            <div class="corner tl"></div><div class="corner tr"></div>
+            <div class="corner bl"></div><div class="corner br"></div>
+
+            <div class="cyber-card">
+                {% if user.is_authenticated %}
+                    <h2 class="welcome-title">היי {{ user.username }}</h2>
+                    <p class="welcome-sub">מוכנים להתחיל יום מוצלח?</p>
+                    <div class="actions">
+                        <a href="{% url 'allTasks' %}" class="btn-glow">OPEN DASHBOARD</a>
+                        <a href="{% url 'logout' %}" class="logout-link">DISCONNECT</a>
+                    </div>
+                {% else %}
+                    <h2 style="font-size: 36px; color: white; margin-bottom: 3rem; font-weight: 900;">ACCESS GATE</h2>
+                    <div class="actions">
+                        <a href="{% url 'register' %}" class="btn-glow btn-white">CREATE ACCOUNT</a>
+                        <a href="{% url 'login' %}" class="btn-glow">LOGIN</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

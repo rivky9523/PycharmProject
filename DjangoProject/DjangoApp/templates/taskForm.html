@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasky | {{ title }}</title>
+    <style>
+        :root {
+            --neon-blue: #00f2ff;
+            --neon-pink: #ff00ff;
+            --neon-yellow: #fefe33;
+            --bg-dark: #020617;
+        }
+
+        @keyframes masterGlow {
+            0% { border-color: var(--neon-blue); filter: drop-shadow(0 0 5px var(--neon-blue)); color: var(--neon-blue); }
+            50% { border-color: var(--neon-pink); filter: drop-shadow(0 0 10px var(--neon-pink)); color: var(--neon-pink); }
+            100% { border-color: var(--neon-yellow); filter: drop-shadow(0 0 8px var(--neon-yellow)); color: var(--neon-yellow); }
+        }
+
+        /* מניעת גלילה */
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #0f172a 0%, var(--bg-dark) 100%);
+            color: white;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* הצמדה למעלה */
+            padding-top: 2vh; /* רווח קטן מהתקרה */
+        }
+
+        /* לוגו קטן ומהיר */
+        .logo-text {
+            font-size: 50px;
+            font-weight: 900;
+            font-family: 'Arial Black', sans-serif;
+            -webkit-text-stroke: 1px var(--neon-blue);
+            color: transparent;
+            animation: masterGlow 6s infinite alternate ease-in-out;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .cyber-card {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(15px);
+            border: 2px solid var(--neon-blue);
+            border-radius: 25px;
+            padding: 1.5rem;
+            width: 90%;
+            max-width: 380px;
+            animation: masterGlow 6s infinite alternate ease-in-out;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 20px;
+            text-align: center;
+            margin: 0 0 15px 0;
+            font-weight: 800;
+        }
+
+        form p {
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--neon-blue);
+        }
+
+        input, select, textarea {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(0, 242, 255, 0.3) !important;
+            border-radius: 8px !important;
+            padding: 8px 12px !important;
+            color: white !important;
+            font-size: 14px !important;
+            width: 100%;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1) sepia(100%) saturate(10000%) hue-rotate(170deg);
+            cursor: pointer;
+        }
+
+        textarea {
+            height: 60px;
+            resize: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 10px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 900;
+            background: transparent;
+            border: 2px solid var(--neon-blue);
+            color: white;
+            cursor: pointer;
+            animation: masterGlow 6s infinite alternate ease-in-out;
+            transition: 0.3s;
+        }
+        @keyframes masterGlow {
+            0% { border-color: var(--neon-blue); stroke: var(--neon-blue); filter: drop-shadow(0 0 10px var(--neon-blue)); color: var(--neon-blue); }
+            50% { border-color: var(--neon-pink); stroke: var(--neon-pink); filter: drop-shadow(0 0 20px var(--neon-pink)); color: var(--neon-pink); }
+            100% { border-color: var(--neon-yellow); stroke: var(--neon-yellow); filter: drop-shadow(0 0 15px var(--neon-yellow)); color: var(--neon-yellow); }
+        }
+
+        @keyframes lineFlow {
+            0% { stroke-dashoffset: 1000; }
+            100% { stroke-dashoffset: 0; }
+        }
+
+        .btn-submit:hover {
+            background: white;
+            color: black;
+            filter: none;
+        }
+.text-skeleton {
+    font-size: 150px;
+    font-weight: 900;
+    font-family: 'Arial Black', sans-serif;
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 1px;
+    text-anchor: middle;
+}
+
+.text-skeleton {
+    fill: rgba(255, 255, 255, 0.05) !important;
+    stroke: rgba(0, 242, 255, 0.3) !important;
+}
+
+.text-animated {
+    stroke: var(--neon-blue);
+}
+
+.text-animated {
+    font-size: 150px;
+    font-weight: 900;
+    font-family: 'Arial Black', sans-serif;
+    fill: none;
+    stroke-width: 3px;
+    stroke-dasharray: 400;
+    text-anchor: middle;
+    animation: lineFlow 6s linear infinite, masterGlow 6s infinite alternate ease-in-out;
+}
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+        }
+                .logo-svg {
+            width: 650px;
+            height: 180px;
+            overflow: visible;
+            display: block;
+        }
+        .brand-zone {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 0 1 auto;
+        }
+
+
+        .back-link:hover { color: var(--neon-pink); }
+
+    </style>
+</head>
+<body>
+
+        <div class="brand-zone">
+            <svg class="logo-svg" viewBox="0 0 700 200">
+                <text x="350" y="130" class="text-skeleton">WORKIFY</text>
+                <text x="350" y="130" class="text-animated">WORKIFY</text>
+            </svg>
+        </div>
+
+    <div class="cyber-card">
+        <h1>{{ title }}</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+                {% if form.non_field_errors %}
+                    <div class="form-errors">
+                        <p><strong>שגיאה:</strong></p>
+                        <ul>
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+            <button type="submit" class="btn-submit">שמור</button>
+            {% if field.errors %}
+                <div class="form-errors" style="margin-top: 0.5rem; margin-bottom: 0;">
+                    <ul>
+                        {% for error in field.errors%}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+        </form>
+
+        <a href="{% url 'allTasks' %}" class="back-link">⬅ חזרה לרשימה</a>
+    </div>
+
+</body>
+</html>

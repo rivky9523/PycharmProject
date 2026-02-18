@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasky | Register</title>
+    <style>
+        :root {
+            --neon-blue: #00f2ff;
+            --neon-pink: #ff00ff;
+            --neon-yellow: #fefe33;
+            --bg-dark: #020617;
+            --text-outline: rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes masterGlow {
+            0% { border-color: var(--neon-blue); stroke: var(--neon-blue); filter: drop-shadow(0 0 10px var(--neon-blue)); color: var(--neon-blue); }
+            50% { border-color: var(--neon-pink); stroke: var(--neon-pink); filter: drop-shadow(0 0 20px var(--neon-pink)); color: var(--neon-pink); }
+            100% { border-color: var(--neon-yellow); stroke: var(--neon-yellow); filter: drop-shadow(0 0 15px var(--neon-yellow)); color: var(--neon-yellow); }
+        }
+
+        @keyframes lineFlow { 0% { stroke-dashoffset: 1000; } 100% { stroke-dashoffset: 0; } }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: radial-gradient(circle at center, #0f172a 0%, var(--bg-dark) 100%);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            direction: ltr;
+        }
+
+        .main-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 130px;
+            width: 100%;
+            max-width: 1600px;
+            margin-right: 150px;
+        }
+
+        .brand-zone { flex: 0 1 auto; text-align: center; }
+        .logo-svg { width: 550px; height: 160px; overflow: visible; display: block; }
+        .text-animated {
+            font-size: 160px; font-weight: 900; font-family: 'Arial Black', sans-serif;
+            fill: none; stroke-width: 5px; stroke-dasharray: 200; text-anchor: middle;
+            animation: lineFlow 6s linear infinite, masterGlow 6s infinite alternate ease-in-out;
+        }
+
+        .description { font-size: 32px; color: #a5f3fc; max-width: 550px; margin-top: -10px; direction: rtl; }
+        .highlight { border-bottom: 4px solid; animation: masterGlow 6s infinite alternate ease-in-out; }
+
+        .card-zone { flex: 0 0 550px; position: relative; }
+        .cyber-card {
+            background: rgba(15, 23, 42, 0.95);
+            border: 4px solid var(--neon-blue);
+            border-radius: 50px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            animation: masterGlow 6s infinite alternate ease-in-out;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .field-wrapper { margin-bottom: 15px; text-align: right; }
+        label { display: block; color: #a5f3fc; margin-bottom: 5px; font-size: 14px; padding-right: 10px; }
+
+        input {
+            width: 100%; height: 55px; background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 15px;
+            color: white; font-size: 20px; font-weight: bold; text-align: center;
+            outline: none; transition: 0.3s;
+        }
+        input:focus { border-color: white; background: rgba(255, 255, 255, 0.1); }
+
+        .error-msg { color: #ff4d4d; font-size: 13px; margin-top: 5px; font-weight: bold; }
+        .password-help {
+            font-size: 11px; color: #94a3b8; line-height: 1.3;
+            background: rgba(0,0,0,0.3); padding: 10px; border-radius: 10px; margin-top: 5px;
+            text-align: right; direction: rtl;
+        }
+
+        .btn-register {
+            width: 100%; padding: 1.2rem; border-radius: 20px; font-size: 26px; font-weight: 900;
+            background: transparent; border: 4px solid var(--neon-blue); color: white;
+            cursor: pointer; animation: masterGlow 6s infinite alternate ease-in-out;
+            margin-top: 10px;
+        }
+        .btn-register:hover { background: white; color: black !important; }
+
+        .corner { position: absolute; width: 50px; height: 50px; border: 7px solid var(--neon-blue);
+        animation: masterGlow 6s infinite alternate ease-in-out; z-index: 10; }
+        .tl { top: -15px; left: -15px; border-right: none; border-bottom: none; }
+        .tr { top: -15px; right: -15px; border-left: none; border-bottom: none; }
+        .bl { bottom: -15px; left: -15px; border-right: none; border-top: none; }
+        .br { bottom: -15px; right: -15px; border-left: none; border-top: none; }
+
+        .back-link { display: block; margin-top: 20px; color: white; text-decoration: none; font-weight: bold; direction: rtl; font-size: 16px; }
+
+        @media (max-width: 1300px) {
+            .main-container { flex-direction: column; margin-right: 0; padding: 20px; overflow-y: auto; }
+            .logo-svg { width: 100%; max-width: 400px; }
+            .cyber-card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="brand-zone">
+            <svg class="logo-svg" viewBox="0 0 700 200">
+                <text x="350" y="150" class="text-animated">WORKIFY.</text>
+            </svg>
+        <p class="description">
+                 אתר לניהול משימות
+                <span class="highlight-line"> </span>.
+            </p>
+        </div>
+
+        <div class="card-zone">
+            <div class="corner tl"></div><div class="corner tr"></div>
+            <div class="corner bl"></div><div class="corner br"></div>
+
+            <div class="cyber-card">
+                <h2 style="font-size: 32px; margin-bottom: 20px; letter-spacing: 2px;">CREATE ACCOUNT</h2>
+
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="field-wrapper">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+
+                            {% if field.errors %}
+                                {% for error in field.errors %}
+                                    <p class="error-msg">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+
+                            {% if "password" in field.name.lower and not field.errors %}
+                                <div class="password-help">
+                                    * לפחות 8 תווים | לא יכול להיות דומה למידע אישי | לא סיסמה נפוצה.
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <p class="error-msg" style="margin-bottom: 15px;">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+
+                    <button type="submit" class="btn-register">REGISTER</button>
+                </form>
+
+                <a href="{% url 'home' %}" class="back-link">→ חזרה לדף הבית</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
