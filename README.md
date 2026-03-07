@@ -97,8 +97,6 @@ Open your browser and navigate to: `http://127.0.0.1:8000`.
 ## Contact
 
 
-פותח על ידי **RIVKY PERETZ**.
-לשאלות בנוגע לפרויקט זה, ניתן ליצור קשר דרך מייל r0548551732@gmail.com או דרך GitHub.
 =======
 ## 👩‍💻 Author
 
