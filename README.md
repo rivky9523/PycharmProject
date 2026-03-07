@@ -92,12 +92,7 @@ python manage.py runserver
 5. **Log in:**
 Open your browser and navigate to: `http://127.0.0.1:8000`.
 
----
 
-## Contact
-
-
-=======
 ## 👩‍💻 Author
 
 Rivky Peretz
