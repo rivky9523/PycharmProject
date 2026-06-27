@@ -19,7 +19,7 @@ The application implements strict Role-Based Access Control (RBAC), differentiat
 ### Permissions and Roles
 The system enforces a clear separation of roles:
 
-1. **Admin:**
+1. **Admin: **
 * Ability to create new tasks and assign them to teams.
 * Global view of all tasks in the system.
 * Permission to edit or delete tasks (limited to tasks that have not yet been assigned to an employee, to prevent disruption to the workflow).
